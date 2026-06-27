@@ -12,7 +12,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
-<script src="./image-slot.js"></script>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -32,7 +31,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;backgr
 @keyframes bloomB{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-24px,20px) scale(1.08)}100%{transform:translate(0,0) scale(1)}}
 </style>
 </helmet>
-<div style="position:relative;min-height:100vh;width:100%;overflow-x:hidden;font-family:'Pretendard','Pretendard Variable',system-ui,sans-serif;color:#fff;">
+<div style="position:relative;min-height:100vh;width:100%;overflow-x:clip;font-family:'Pretendard','Pretendard Variable',system-ui,sans-serif;color:#fff;">
 
   <!-- ====== FIXED BACKGROUND ====== -->
   <div style="position:fixed;inset:0;z-index:0;background:linear-gradient(158deg,#E01F58 0%,#E64C58 24%,#EC7355 46%,#F0936C 66%,#F4BE9D 100%);">
@@ -48,7 +47,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;backgr
   <main style="position:relative;z-index:2;">
 
     <!-- ====================== HERO ====================== -->
-    <section id="top" style="position:relative;min-height:100vh;padding:46px 60px 116px;display:flex;flex-direction:column;overflow:hidden;">
+    <section id="top" data-screen-label="Hero" style="position:relative;min-height:100vh;padding:46px 60px 116px;display:flex;flex-direction:column;overflow:hidden;">
 
       <!-- 3D glass disc stage -->
       <div style="position:absolute;inset:0;z-index:1;pointer-events:none;perspective:1400px;perspective-origin:64% 42%;">
@@ -94,15 +93,30 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;backgr
       </div>
     </section>
 
+    <!-- ================== PINNED SCROLLYTELLING ================== -->
+    <section data-pin data-screen-label="Philosophy" style="position:relative;height:260vh;">
+      <div data-pin-inner style="position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 60px;overflow:hidden;">
+        <div style="position:absolute;top:50%;left:50%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),rgba(255,255,255,0) 66%);transform:translate(-50%,-50%);" data-pin-orb></div>
+        <div style="max-width:1180px;margin:0 auto;width:100%;position:relative;">
+          <div data-pin-item data-start="0" data-end="0.16" style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.24em;color:rgba(255,255,255,.7);margin-bottom:34px;opacity:0;">PHILOSOPHY</div>
+          <div style="font-size:clamp(38px,5.6vw,82px);font-weight:800;line-height:1.12;letter-spacing:-.02em;color:#fff;">
+            <div data-pin-item data-start="0.06" data-end="0.32" style="opacity:0;">문제를 깊이 <span style="color:rgba(255,255,255,.55);">관찰하고,</span></div>
+            <div data-pin-item data-start="0.3" data-end="0.56" style="opacity:0;">구조로 <span style="color:rgba(255,255,255,.55);">분해하며,</span></div>
+            <div data-pin-item data-start="0.54" data-end="0.8" style="opacity:0;">감각적인 해답으로 <span style="color:#FFE3D6;">잇습니다.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ====================== ABOUT ====================== -->
-    <section id="about" style="position:relative;padding:150px 60px 120px;">
+    <section id="about" data-screen-label="About" style="position:relative;padding:150px 60px 120px;">
       <div style="max-width:1180px;margin:0 auto;">
         <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);">
           <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.22em;color:rgba(255,255,255,.62);margin-bottom:22px;">01 — ABOUT</div>
           <h2 style="margin:0;font-size:clamp(40px,4.6vw,60px);font-weight:800;line-height:1.06;letter-spacing:-.02em;color:#fff;">안녕하세요,<br>저는 김기영입니다.</h2>
         </div>
         <div style="display:grid;grid-template-columns:380px 1fr;gap:56px;align-items:start;margin-top:60px;">
-          <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);position:relative;">
+          <div data-reveal data-reveal-x="-40" style="opacity:0;transform:translateX(-40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);position:relative;">
             <div style="padding:10px;border-radius:24px;background:rgba(255,248,244,.42);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.55);box-shadow:0 30px 70px rgba(150,34,64,.2),inset 0 1px 0 rgba(255,255,255,.6);">
               <img src="./uploads/profile.png" style="width:100%;height:460px;display:block;object-fit:cover;object-position:center top;border-radius:16px;" alt="김기영 프로필사진">
             </div>
@@ -110,10 +124,10 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;backgr
           <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:.1s;padding-top:6px;">
             <p style="margin:0 0 22px;font-size:21px;line-height:1.65;color:#fff;font-weight:500;">세상을 감각적으로 바라보고, 사용자의 문제를 논리적으로 풀어가는 프로덕트 매니저입니다.</p>
             <p style="margin:0 0 40px;font-size:16px;line-height:1.75;color:rgba(255,255,255,.78);">물리학의 논리적 사고를 바탕으로 서비스를 기획하고, 아이디어를 실제 제품으로 만드는 일을 합니다. 데이터와 직관 사이에서 최선의 답을 찾아갑니다.</p>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+            <div data-stagger style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
               <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
-                <div style="padding:24px 22px;border-radius:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);">
-                  <div style="font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:600;line-height:1;color:#fff;letter-spacing:-.02em;">{{ s.n }}</div>
+                <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);padding:24px 22px;border-radius:18px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);">
+                  <div class="stat-num" data-n="{{ s.n }}" data-suf="{{ s.suf }}" style="font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:600;line-height:1;color:#fff;letter-spacing:-.02em;">{{ s.display }}</div>
                   <div style="margin-top:10px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.16em;color:rgba(255,255,255,.66);">{{ s.l }}</div>
                 </div>
               </sc-for>
@@ -124,34 +138,33 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;backgr
     </section>
 
     <!-- ================== EXPERIENCE + SKILLS ================== -->
-    <section id="work" style="position:relative;padding:130px 60px;">
+    <section id="work" data-screen-label="Experience" style="position:relative;padding:130px 60px;">
       <div style="max-width:1180px;margin:0 auto;">
         <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);">
           <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.22em;color:rgba(255,255,255,.62);margin-bottom:22px;">02 — EXPERIENCE & SKILLS</div>
           <h2 style="margin:0;font-size:clamp(40px,4.6vw,60px);font-weight:800;line-height:1.06;letter-spacing:-.02em;color:#fff;">걸어온 길</h2>
         </div>
         <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:32px;margin-top:60px;align-items:start;">
-          <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);padding:34px 36px;border-radius:24px;background:rgba(255,248,244,.42);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.55);box-shadow:0 30px 70px rgba(150,34,64,.18),inset 0 1px 0 rgba(255,255,255,.6);">
+          <div data-reveal data-reveal-x="-40" style="opacity:0;transform:translateX(-40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);padding:34px 36px;border-radius:24px;background:rgba(255,248,244,.42);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.55);box-shadow:0 30px 70px rgba(150,34,64,.18),inset 0 1px 0 rgba(255,255,255,.6);">
             <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:.16em;color:#B33A52;margin-bottom:8px;">CAREER</div>
-            <sc-for list="{{ career }}" as="c" hint-placeholder-count="4">
+            <sc-for list="{{ career }}" as="c" hint-placeholder-count="1">
               <div style="display:grid;grid-template-columns:104px 1fr;gap:18px;padding:22px 0;border-top:1px solid rgba(120,30,50,.14);">
                 <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;color:#9A4452;padding-top:3px;">{{ c.year }}</div>
                 <div>
                   <div style="font-size:17px;font-weight:700;color:#2C0A14;">{{ c.role }}</div>
                   <div style="font-size:14px;font-weight:600;color:#E01F58;margin-top:3px;">{{ c.org }}</div>
-                  <div style="font-size:14px;line-height:1.6;color:#6A3A42;margin-top:8px;">{{ c.desc }}</div>
                 </div>
               </div>
             </sc-for>
           </div>
-          <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:.1s;padding:34px 36px;border-radius:24px;background:rgba(255,248,244,.42);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.55);box-shadow:0 30px 70px rgba(150,34,64,.18),inset 0 1px 0 rgba(255,255,255,.6);">
+          <div data-reveal data-reveal-x="40" style="opacity:0;transform:translateX(40px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:.08s;padding:34px 36px;border-radius:24px;background:rgba(255,248,244,.42);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.55);box-shadow:0 30px 70px rgba(150,34,64,.18),inset 0 1px 0 rgba(255,255,255,.6);">
             <div style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:.16em;color:#B33A52;margin-bottom:20px;">SKILLS</div>
             <sc-for list="{{ skills }}" as="g" hint-placeholder-count="3">
               <div style="margin-bottom:24px;">
                 <div style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.16em;color:#9A4452;margin-bottom:12px;">{{ g.cat }}</div>
-                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <div data-stagger style="display:flex;flex-wrap:wrap;gap:8px;">
                   <sc-for list="{{ g.items }}" as="chip" hint-placeholder-count="4">
-                    <div style="padding:8px 15px;border-radius:999px;background:rgba(255,255,255,.5);border:1px solid rgba(120,30,50,.12);font-size:14px;font-weight:500;color:#46141F;">{{ chip }}</div>
+                    <div data-reveal style="opacity:0;transform:translateY(16px) scale(.92);transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1);padding:8px 15px;border-radius:999px;background:rgba(255,255,255,.5);border:1px solid rgba(120,30,50,.12);font-size:14px;font-weight:500;color:#46141F;cursor:default;" style-hover="background:rgba(255,255,255,.8)">{{ chip }}</div>
                   </sc-for>
                 </div>
               </div>
@@ -162,24 +175,23 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;backgr
     </section>
 
     <!-- ====================== PROJECTS ====================== -->
-    <section id="projects" style="position:relative;padding:130px 60px;">
+    <section id="projects" data-screen-label="Projects" style="position:relative;padding:130px 60px;">
       <div style="max-width:1180px;margin:0 auto;">
         <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);">
           <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.22em;color:rgba(255,255,255,.62);margin-bottom:22px;">03 — SELECTED WORK</div>
           <h2 style="margin:0;font-size:clamp(40px,4.6vw,60px);font-weight:800;line-height:1.06;letter-spacing:-.02em;color:#fff;">프로젝트</h2>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:60px;">
+        <div data-stagger style="display:grid;grid-template-columns:repeat(2,1fr);gap:30px;margin-top:60px;">
           <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
-            <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1),box-shadow .3s;border-radius:24px;overflow:hidden;background:rgba(255,248,244,.42);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.55);box-shadow:0 26px 60px rgba(150,34,64,.16),inset 0 1px 0 rgba(255,255,255,.6);cursor:pointer;" style-hover="transform:translateY(-8px);box-shadow:0 44px 90px rgba(150,34,64,.28),inset 0 1px 0 rgba(255,255,255,.6)">
-              <div style="height:230px;background:rgba(120,30,50,.06);"><image-slot id="{{ p.slot }}" shape="rect" placeholder="작업 이미지" style="width:100%;height:230px;display:block;"></image-slot></div>
-              <div style="padding:26px 28px 30px;">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
-                  <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;color:#B33A52;">{{ p.tag }}</span>
-                  <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:rgba(120,30,50,.34);">{{ p.num }}</span>
-                </div>
-                <div style="font-size:23px;font-weight:700;color:#2C0A14;letter-spacing:-.01em;">{{ p.title }}</div>
-                <div style="font-size:15px;line-height:1.6;color:#6A3A42;margin-top:10px;">{{ p.desc }}</div>
-                <div style="margin-top:18px;font-size:14px;font-weight:600;color:#E01F58;">자세히 보기 →</div>
+            <div data-reveal style="opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1),box-shadow .3s;position:relative;overflow:hidden;border-radius:24px;padding:38px 34px 30px;min-height:236px;display:flex;flex-direction:column;background:rgba(255,248,244,.42);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.55);box-shadow:0 26px 60px rgba(150,34,64,.16),inset 0 1px 0 rgba(255,255,255,.6);cursor:pointer;" style-hover="transform:translateY(-8px);box-shadow:0 44px 90px rgba(150,34,64,.28),inset 0 1px 0 rgba(255,255,255,.6)">
+              <div style="position:absolute;right:20px;top:-12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:150px;line-height:1;color:rgba(120,30,50,.05);pointer-events:none;">{{ p.num }}</div>
+              <div style="position:relative;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;color:#B33A52;">{{ p.tag }}</span>
+                <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:rgba(120,30,50,.34);">{{ p.num }}</span>
+              </div>
+              <div style="position:relative;margin-top:auto;">
+                <div style="font-size:28px;font-weight:700;color:#2C0A14;letter-spacing:-.01em;">{{ p.title }}</div>
+                <div style="margin-top:16px;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#E01F58;">프로젝트 보기 <span>→</span></div>
               </div>
             </div>
           </sc-for>
@@ -188,7 +200,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;backgr
     </section>
 
     <!-- ====================== CONTACT ====================== -->
-    <section id="contact" style="position:relative;padding:150px 60px 220px;overflow:hidden;">
+    <section id="contact" data-screen-label="Contact" style="position:relative;padding:150px 60px 220px;overflow:hidden;">
       <div style="max-width:1180px;margin:0 auto;position:relative;z-index:2;">
         <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);">
           <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;letter-spacing:.22em;color:rgba(255,255,255,.62);margin-bottom:24px;">04 — CONTACT</div>
@@ -196,9 +208,9 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;backgr
           <p style="margin:28px 0 40px;max-width:520px;font-size:19px;line-height:1.6;color:rgba(255,255,255,.84);">새로운 프로젝트, 협업 제안, 혹은 그냥 가벼운 인사도 언제나 환영합니다.</p>
           <a href="mailto:vbn224@naver.com" style="display:inline-flex;align-items:center;gap:12px;padding:20px 34px;border-radius:999px;background:#fff;color:#E01F58;font-size:18px;font-weight:700;text-decoration:none;box-shadow:0 18px 44px rgba(120,20,50,.3);transition:transform .25s,box-shadow .25s;" style-hover="transform:translateY(-3px);box-shadow:0 26px 56px rgba(120,20,50,.38)">vbn224@naver.com →</a>
         </div>
-        <div data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:.12s;display:flex;flex-wrap:wrap;gap:48px;margin-top:64px;">
+        <div data-stagger data-reveal style="opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:.12s;display:flex;flex-wrap:wrap;gap:48px;margin-top:64px;">
           <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
-            <a href="{{ s.href }}" style="display:flex;flex-direction:column;gap:4px;text-decoration:none;">
+            <a href="{{ s.href }}" target="_blank" data-reveal style="opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column;gap:4px;text-decoration:none;">
               <span style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.16em;color:rgba(255,255,255,.55);">{{ s.label }}</span>
               <span style="font-size:17px;font-weight:600;color:#fff;transition:opacity .2s;" style-hover="opacity:.7">{{ s.val }}</span>
             </a>
@@ -234,10 +246,15 @@ class Component extends DCLogic {
     this._scrollY = 0;
     this._moveBound = false;
     this._setupReveal();
+    this._setupCounters();
+    this._setupPin();
     this._applyMotion();
     this._updateNav();
-    this._scrollHandler = () => { this._scrollY = window.scrollY; this._updateNav(); };
+    this._updatePins();
+    this._scrollHandler = () => { this._scrollY = window.scrollY; this._updateNav(); this._updatePins(); };
     window.addEventListener('scroll', this._scrollHandler, { passive: true });
+    this._resizeHandler = () => this._updatePins();
+    window.addEventListener('resize', this._resizeHandler, { passive: true });
   }
 
   componentDidUpdate() { this._applyMotion(); }
@@ -245,9 +262,7 @@ class Component extends DCLogic {
   _applyMotion() {
     if (!this._stage) return;
     const float = this.props.discFloat !== false && !this._reduce;
-    this._stage.querySelectorAll('[data-disc]').forEach((d) => {
-      d.style.animationPlayState = float ? 'running' : 'paused';
-    });
+    this._stage.querySelectorAll('[data-disc]').forEach((d) => { d.style.animationPlayState = float ? 'running' : 'paused'; });
     const par = this.props.parallax !== false && !this._reduce;
     if (par && !this._moveBound) {
       this._onMove = (e) => { this._mx = e.clientX / window.innerWidth; this._my = e.clientY / window.innerHeight; };
@@ -284,6 +299,11 @@ class Component extends DCLogic {
   };
 
   _setupReveal() {
+    // assign stagger delays to grouped children
+    document.querySelectorAll('[data-stagger]').forEach((group) => {
+      const kids = group.querySelectorAll('[data-reveal]');
+      kids.forEach((k, i) => { k.style.transitionDelay = (i * 0.09).toFixed(2) + 's'; });
+    });
     const els = Array.from(document.querySelectorAll('[data-reveal]'));
     const show = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };
     if (!('IntersectionObserver' in window) || this._reduce) {
@@ -295,7 +315,72 @@ class Component extends DCLogic {
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     els.forEach((el) => io.observe(el));
     this._io = io;
-    this._safety = setTimeout(() => els.forEach(show), 2000);
+    this._safety = setTimeout(() => els.forEach(show), 2600);
+  }
+
+  _setupCounters() {
+    const nums = Array.from(document.querySelectorAll('.stat-num'));
+    if (!nums.length || !('IntersectionObserver' in window) || this._reduce) return;
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((en) => { if (en.isIntersecting) { this._countUp(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.6 });
+    nums.forEach((n) => io.observe(n));
+    this._io2 = io;
+  }
+
+  _countUp(el) {
+    const t = parseFloat(el.dataset.n) || 0;
+    const suf = el.dataset.suf || '';
+    const dur = 1100, start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(t * e) + suf;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  _setupPin() {
+    this._pins = Array.from(document.querySelectorAll('[data-pin]')).map((wrap) => ({
+      wrap,
+      orb: wrap.querySelector('[data-pin-orb]'),
+      items: Array.from(wrap.querySelectorAll('[data-pin-item]')).map((el) => ({
+        el,
+        a: parseFloat(el.dataset.start) || 0,
+        b: parseFloat(el.dataset.end) || 1,
+      })),
+    }));
+    if (this._reduce) {
+      this._pins.forEach((p) => {
+        p.wrap.style.height = 'auto';
+        const inner = p.wrap.querySelector('[data-pin-inner]');
+        if (inner) { inner.style.position = 'static'; inner.style.height = 'auto'; inner.style.padding = '120px 60px'; }
+        p.items.forEach((it) => { it.el.style.opacity = '1'; it.el.style.transform = 'none'; });
+      });
+      this._pins = [];
+    }
+  }
+
+  _updatePins() {
+    if (!this._pins || !this._pins.length) return;
+    const vh = window.innerHeight;
+    const ease = (x) => 1 - Math.pow(1 - x, 3);
+    this._pins.forEach((p) => {
+      const r = p.wrap.getBoundingClientRect();
+      const total = p.wrap.offsetHeight - vh;
+      const prog = total > 0 ? Math.min(Math.max(-r.top / total, 0), 1) : 0;
+      if (p.orb) {
+        p.orb.style.transform = 'translate(-50%,-50%) scale(' + (0.7 + prog * 0.9).toFixed(3) + ')';
+        p.orb.style.opacity = (0.4 + Math.sin(prog * Math.PI) * 0.6).toFixed(3);
+      }
+      p.items.forEach((it) => {
+        const local = Math.min(Math.max((prog - it.a) / (it.b - it.a), 0), 1);
+        const e = ease(local);
+        it.el.style.opacity = e.toFixed(3);
+        it.el.style.transform = 'translateY(' + ((1 - e) * 46).toFixed(1) + 'px)';
+      });
+    });
   }
 
   _updateNav() {
@@ -305,10 +390,7 @@ class Component extends DCLogic {
     ids.forEach((id) => { const sec = document.getElementById(id); if (sec && sec.offsetTop <= y) cur = id; });
     document.querySelectorAll('[data-nav]').forEach((n) => {
       const on = n.getAttribute('data-nav') === cur;
-      if (n.getAttribute('data-nav') === 'top') {
-        n.style.background = 'rgba(255,255,255,.16)';
-        return;
-      }
+      if (n.getAttribute('data-nav') === 'top') { n.style.background = 'rgba(255,255,255,.16)'; return; }
       n.style.background = on ? 'rgba(255,255,255,.18)' : 'transparent';
       n.style.color = on ? '#fff' : 'rgba(255,255,255,.78)';
     });
@@ -325,7 +407,9 @@ class Component extends DCLogic {
     cancelAnimationFrame(this._raf);
     if (this._onMove) window.removeEventListener('mousemove', this._onMove);
     if (this._scrollHandler) window.removeEventListener('scroll', this._scrollHandler);
+    if (this._resizeHandler) window.removeEventListener('resize', this._resizeHandler);
     if (this._io) this._io.disconnect();
+    if (this._io2) this._io2.disconnect();
     clearTimeout(this._safety);
   }
 
@@ -345,12 +429,12 @@ class Component extends DCLogic {
       goContact: () => this.scrollTo('contact'),
       nav,
       stats: [
-        { n: '1+', l: 'YEARS' },
-        { n: '10+', l: 'PROJECTS' },
-        { n: '5+', l: 'AWARDS' },
+        { display: '1+', n: 1, suf: '+', l: 'YEARS' },
+        { display: '10+', n: 10, suf: '+', l: 'PROJECTS' },
+        { display: '5+', n: 5, suf: '+', l: 'AWARDS' },
       ],
       career: [
-        { year: '2022.02 —', role: '물리학과 입학', org: '부산대학교', desc: '' },
+        { year: '2022.02 —', role: '물리학과 입학', org: '부산대학교' },
       ],
       skills: [
         { cat: 'DESIGN', items: ['UX/UI', '인터랙션', '프로토타이핑', '디자인 시스템', '유저 리서치'] },
@@ -358,10 +442,10 @@ class Component extends DCLogic {
         { cat: 'CODE', items: ['HTML/CSS', 'JavaScript', 'React'] },
       ],
       projects: [
-        { slot: 'proj1', num: '01', title: '킬링파트(KillingPart)', tag: '2025', desc: '' },
-        { slot: 'proj2', num: '02', title: '가는길', tag: '2026', desc: '' },
-        { slot: 'proj3', num: '03', title: '팀코몬(COMON)', tag: '2025', desc: '' },
-        { slot: 'proj4', num: '04', title: '글결 프로젝트', tag: '2026', desc: '' },
+        { num: '01', title: '킬링파트(KillingPart)', tag: '2025' },
+        { num: '02', title: '가는길', tag: '2026' },
+        { num: '03', title: '팀코몬(COMON)', tag: '2025' },
+        { num: '04', title: '글결 프로젝트', tag: '2026' },
       ],
       socials: [
         { label: 'EMAIL', val: 'vbn224@naver.com', href: 'mailto:vbn224@naver.com' },
